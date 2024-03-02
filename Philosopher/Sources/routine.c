@@ -1,12 +1,5 @@
 #include "../Header/Philo.h"
 
-void	_push_job(t_data *data, t_cmd *cmd)
-{
-	pthread_mutex_lock(&data->push);
-	data->job_queue->push(data->job_queue, cmd);
-	pthread_mutex_unlock(&data->push);
-}
-
 void	check_time(t_data *data, t_philo *philo, long time_of_wait, \
 long last_eat_time)
 {
