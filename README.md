@@ -1,4 +1,6 @@
-This project was implemented multi thread of dining philosopher problem.
+This project was implemented multi thread and command pattern of dining philosopher problem.
+
+
 
 each philosopher is a thread and has a routine (eat -> sleep -> think -> eat -> ...)
 
