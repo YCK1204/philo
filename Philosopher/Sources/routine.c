@@ -13,7 +13,11 @@ long last_eat_time)
 		if (time_of_wait <= cur_time - start)
 			break ;
 		if (cur_time - last_eat_time >= data->time.die)
-			break ;
+            break;
+		if (data->state == DIE) {
+            philo->state = DIE;
+            return;
+		}
 		usleep(100);
 	}
 	if (cur_time - last_eat_time >= data->time.die)
@@ -31,8 +35,8 @@ void	t_philo_eat(t_data *data, t_philo *philo)
 	pthread_mutex_lock(&data->forks[philo->right]);
 	_push_1(data, get_time(), philo->id, FORK);
 	_push_1(data, get_time(), philo->id, EAT);
-	philo->last_eat_time = get_time();
 	check_time(data, philo, data->time.eat, philo->last_eat_time);
+	philo->last_eat_time = get_time();
 	pthread_mutex_unlock(&data->forks[philo->right]);
 	pthread_mutex_unlock(&data->forks[philo->left]);
 	philo->eat_cnt++;
