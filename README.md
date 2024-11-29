@@ -1,4 +1,4 @@
-This project was implemented multi thread and command pattern of dining philosopher problem.
+This project was implemented multi thread and message queue of dining philosopher problem.
 
 
 
